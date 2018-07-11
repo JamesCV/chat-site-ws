@@ -4,22 +4,58 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" href="css/main.css" type="text/css">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.8/css/uikit.min.css" />
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.8/js/uikit.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.8/js/uikit-icons.min.js"></script>   
         </head>
-        <body>
+        <body onload="checkPage()">
                 <div class="wrapper">
-                        <h1 class="title is-1 header">Chat Site v2.0</h1>
+                        <div class="headerText">
+                                <h1 class="title is-1 header" style="flex: 1">Chat Site v2.0</h1>
+                                <div style="display:flex; justify-content: right; flex: 1">
+                                        <button id="btnUsername" class="button is-light">Change username</button>
+                                </div>
+                         </div>
+                                
          
                         <div id="chat-box">
-                                        <div class="msg">
-                                                <div class="name"></div>
-                                                <div class="content"></div>
-                                        </div>
                                                 
+                        </div>
+
+                        <div class="modal modal-backdrop " id="submitMessageModal">
+                                <div class="modal-background">
+                                        <div class="modal-content">
+                                                <section class="modal-card-head">
+                                                        <p>Enter a username</p>
+                                                        <button class="delete buttonClose" aria-label="close"></button>
+                                                </section>
+                                                <section class="modal-card-body">
+                                                        <input id="nameInput" type="text" class="input is">
+                                                        <button id="btnChangeName" class="modal-button button is-dark" onclick="">Change</button>
+                                                </section>
+
+                                        </div>
+                                        
+                                </div>
+                        </div>
+
+                        <div class="modal modal-backdrop" id="noUsernameModal">
+                                <div class="modal-background">
+                                        <div class="content">
+                                                <section clas="modal-card-head">
+                                                        <section class="modal-card-body" id="modal-no-name">
+                                                                <p>You need to set a name before sending a message</p>
+                                                        </section>
+                                                </section>
+                                                
+                                        </div>
+
+                                </div>
                         </div>
                 
                         <div class="controls">
                                 <input id="inputValue" class="input is" type="text" placeholder="">
-                                <button class="button" type="submit" onclick="sendMessage()">Send Message</button>
+                                <button class="button is-light" type="submit" onclick="sendMessage()">Send Message</button>
                         </div>
                 </div>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

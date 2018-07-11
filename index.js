@@ -13,19 +13,19 @@ const io = socketIO(server)
 function callback(socket) {
     console.log('User connected')
     
+    socket.emit('loadMessages', messageArray);
+
     socket.on('disconnect', function(){
         console.log('User disconnected')
     })
   
     // recieving message from sender
-    socket.on('chatMessage', function(message) {
-        console.log("chat message received: " + message);
-        messageArray.push(message);
-        console.log(messageArray);
-        io.emit('broadcast', messageArray);
+    socket.on('chatMessage', function(msgObject) {
+        messageArray.push(msgObject);
+        console.log(msgObject);
+        io.emit('broadcast', msgObject);
     });
-
-    
+   
     
   }
 
