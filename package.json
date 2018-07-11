@@ -1,0 +1,10 @@
+{
+    "name": "Chat App",
+    "version": "0.0.1",
+    "description": "Chat App using web sockets",
+    "dependencies": {
+        "bulma": "^0.7.1",
+        "socket.io": "latest"
+    },
+    "author": "developer"
+}
