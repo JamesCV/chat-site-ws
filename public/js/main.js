@@ -7,11 +7,14 @@ function sendMessage() {
 }
 
 socket.on('broadcast', function(messageArray){
-    var noOfItems = messageArray.length;
-    var txtNode = document.createTextNode(noOfItems);
-    var elementNode = document.createElement("p");
-    var node = elementNode.appendChild(txtNode);
-    document.getElementById('content').appendChild(node);
-    
+    $("#chat-box").html("");
+    for (var i = 0; i < messageArray.length; i++) {
+        $("#chat-box").append(
+            '<div class="msg">\
+                <div class="name">name: </div>\
+                <div class="content">' + messageArray[i] + '</div>\
+            </div>'
+        );
+    }    
 })
 
