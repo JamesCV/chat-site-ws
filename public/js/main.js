@@ -83,6 +83,14 @@ socket.on('broadcast', function (msgObject){
     scrollChatBox();       
 });
 
+socket.on('command', function(command){
+    console.log(command);
+    if (command == "clear-messages") {
+        $('#chat-box').text("");
+    }
+})
+
+
 function setName() {
     if (getCookie("username") == undefined) {
         $('#submitMessageModal').addClass("is-active")

@@ -4,7 +4,8 @@
     "description": "Chat App using web sockets",
     "dependencies": {
         "bulma": "^0.7.1",
-        "socket.io": "latest"
+        "socket.io": "latest",
+        "sqlite3": "^4.0.1"
     },
     "author": "developer"
 }
