@@ -83,11 +83,8 @@ socket.on('broadcast', function (msgObject){
     scrollChatBox();       
 });
 
-socket.on('command', function(command){
-    console.log(command);
-    if (command == "clear-messages") {
-        $('#chat-box').text("");
-    }
+socket.on('command', function(){
+    $('#chat-box').text("");
 })
 
 
